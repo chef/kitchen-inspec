@@ -249,8 +249,9 @@ module Kitchen
       # @return [Array<String>] array of suite directories or remote urls
       # @api private
       def collect_tests
-        # get local tests and get run list of profiles
-        (local_suite_files + resolve_config_inspec_tests).compact.uniq
+        # get run list of profiles or fall back to local tests
+        return resolve_config_inspec_tests.uniq if resolve_config_inspec_tests
+        local_suite_files
       end
 
       # Returns a configuration Hash that can be passed to a `Inspec::Runner`.
