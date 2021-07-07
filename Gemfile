@@ -20,6 +20,7 @@ end
 group :integration do
   gem "berkshelf", ">= 4.3.5"
   gem "kitchen-dokken"
+  gem "kitchen-docker", ">= 2.10.0"
 end
 
 group :tools do

@@ -385,6 +385,9 @@ module Kitchen
         logger.debug "Connect to Container: #{opts['host']}"
         opts
       end
+
+      # Add alias for docker transport from kitchen-docker gem
+      alias_method :runner_options_for_docker, :runner_options_for_dockercli
     end
   end
 end
